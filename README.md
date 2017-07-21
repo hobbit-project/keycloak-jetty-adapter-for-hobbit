@@ -1,6 +1,6 @@
 ## Keycloak-Jetty-adapter for HOBBIT
 
-This projects comprises a fix that adapts the Keycloak-Jetty-adapter to the requirements of the HOBBIT project. In this project, it needs to be possible to turn of the realm checking if necessary.
+This projects comprises a fix that adapts the Keycloak-Jetty-adapter to the requirements of the HOBBIT project. In this project, it needs to be possible to turn off the realm checking if necessary.
 
 ### Build
 
@@ -9,8 +9,8 @@ This projects comprises a fix that adapts the Keycloak-Jetty-adapter to the requ
 1. Open `keycloak-adapter-core-2.4.0.Final.jar`
 1. Delete `org.keycloak.adapters.rotation.AdapterRSATokenVerifier`
 1. Build this project by running `mvn clean package`
-1. Add the created `keycloak-jetty-adapter-for-hobbit-2.4.0.Final.jar` file to the `lib` folder of the extracted zip file
-1. Create a new zip file with an adapted name, e.g., `keycloak-jetty93-adapter-for-hobbit-dist-2.4.0.Final.zip`
+1. Add the created `keycloak-jetty-adapter-for-hobbit-2.4.0.Final.jar` file to the `lib/keycloak` folder of the extracted zip file
+1. Create a new zip file containing the `lib` and the `modules` directed with an adapted name, e.g., `keycloak-jetty93-adapter-for-hobbit-dist-2.4.0.Final.zip`
 
 ### Usage
 
@@ -18,4 +18,4 @@ The adapter can be used with Jetty as the original Keycloak-adapter. The differe
 
 ### Implementation
 
-Our implementation is based on version `2.4.0.FINAL` adapter provided by the [Keycloak project](https://github.com/keycloak/keycloak) and simply overrides the [`org.keycloak.adapters.rotation.AdapterRSATokenVerifier`](https://github.com/keycloak/keycloak/blob/2.4.0.Final/adapters/oidc/adapter-core/src/main/java/org/keycloak/adapters/rotation/AdapterRSATokenVerifier.java) class and sets the `checkRealmUrl` attribute of the [`org.keycloak.RSATokenVerifier`](https://github.com/keycloak/keycloak/blob/2.4.0.Final/core/src/main/java/org/keycloak/RSATokenVerifier.java) class
+Our implementation is based on version `2.4.0.FINAL` adapter provided by the [Keycloak project](https://github.com/keycloak/keycloak) and simply overrides the [`org.keycloak.adapters.rotation.AdapterRSATokenVerifier`](https://github.com/keycloak/keycloak/blob/2.4.0.Final/adapters/oidc/adapter-core/src/main/java/org/keycloak/adapters/rotation/AdapterRSATokenVerifier.java) class and sets the `checkRealmUrl` attribute of the [`org.keycloak.RSATokenVerifier`](https://github.com/keycloak/keycloak/blob/2.4.0.Final/core/src/main/java/org/keycloak/RSATokenVerifier.java) class.
